@@ -39,7 +39,7 @@ int main() {
             prev = v[p];
         }
 
-        cout << cnt << std::endl;
+        cout << cnt << endl;
     }
 
     return 0;
