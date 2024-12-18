@@ -1,43 +1,43 @@
 #include<bits/stdc++.h>
-#define ll long long
 using namespace std;
 int main()
 {
-   ios::sync_with_stdio(false);
-   cin.tie(nullptr);
-   
-   int t;
-   cin>>t;
-
-   while(t--)
-   {
-    int n; cin>>n;
-
-    vector<ll>a(n);
-
-    for(int i=0;i<n;i++)
+    int t;
+    cin>>t;
+    while(t--)
     {
-        cin>>a[i];
+        int n;
+        cin>>n;
+        vector<int>a(n),b(n),c(n);
+        for(int i=0;i<n;i++){
+            cin>>a[i];
+        }
+
+        b[n-1]=a[n-1];
+        c[n-1]=0;
+        
+        for(int i=n-2;i>=0;i--){
+            b[i]=max(a[i],b[i+1]);
+        }
+
+        for(int i=n-2;i>=0;i--){
+            if(a[i]==b[i]){
+                c[i]=0;
+            }else{
+                if(a[i]<b[i]){
+                    c[i]=c[i+1]+1;
+                }else{
+                    c[i]=0;
+                }
+            }
+        }
+
+        int result=0;
+
+        for(int i=0;i<n;i++){
+            result=max(result,c[i]);
+        }
+        cout<<result<<endl;
     }
-    vector<ll>cnt(n,0);
-    int maxt=0;
-
-    for(int i=n-1;i>=0;i--)
-    {
-      if(a[i]<maxt)
-      {
-        cnt[i]=cnt[i+1]+1;
-      }
-      else
-      {
-        cnt[i]=0;
-      }
-      
-        maxt = max(a[i], maxt);
-           max_count = max(max_count, cnt[i]);
-    }
-
-   }
-
-   return 0;
+    return 0;
 }
