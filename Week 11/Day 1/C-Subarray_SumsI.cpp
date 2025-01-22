@@ -17,7 +17,7 @@ int main()
     }
 
     ll cnt=0,prefix_sum=0;
-    unordered_map<ll,ll>prefix_cnt;
+    map<ll,ll>prefix_cnt;
 
     prefix_cnt[0]=1;
 
@@ -25,10 +25,11 @@ int main()
     {
         prefix_sum+=a[i];
 
-         if (prefix_cnt.count(prefix_sum - x)) {
-            cnt += prefix_cnt[prefix_sum - x];
+        if(prefix_cnt.find(prefix_sum-x)!=prefix_cnt.end())
+        {
+             cnt++;
         }
-        
+
         prefix_cnt[prefix_sum]++;
     }
 
