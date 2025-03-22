@@ -36,3 +36,5 @@ int main()
     return 0;
     
 }
+
+// problem link: https://www.codechef.com/problems/ALTTAB
