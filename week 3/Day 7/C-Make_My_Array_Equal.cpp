@@ -29,3 +29,5 @@ int main()
 
     return 0;
 }
+
+// problem Link: https://www.codechef.com/problems/MEBA
